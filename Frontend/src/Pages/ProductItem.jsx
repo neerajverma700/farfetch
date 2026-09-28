@@ -34,7 +34,7 @@ const ProductItem = ({ item }) => {
       onOpen();
       axios
         .post(
-          "https://backend-farfech.vercel.app/wishlist/add",
+          "http://localhost:8080/wishlist/add",
           { productId: item._id },
           {
             headers: {

@@ -57,7 +57,7 @@ const SingleProduct = () => {
       onOpen();
       axios
         .post(
-          "https://backend-farfech.vercel.app/cart/add",
+          "http://localhost:8080/cart/add",
           { productId: productId },
           {
             headers: {
@@ -103,7 +103,7 @@ const SingleProduct = () => {
       onOpen();
       axios
         .post(
-          "https://backend-farfech.vercel.app/wishlist/add",
+          "http://localhost:8080/wishlist/add",
           { productId: productId },
           {
             headers: {
@@ -149,7 +149,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`https://backend-farfech.vercel.app/product/${productId}`)
+      .get(`http://localhost:8080/product/${productId}`)
       .then((res) => {
         setItem(res.data.product);
       })

@@ -53,7 +53,7 @@ export const CartPage = () => {
     onOpen();
     console.log(id);
     return axios
-      .delete(`https://backend-farfech.vercel.app/cart/delete/${id}`, {
+      .delete(`http://localhost:8080/cart/delete/${id}`, {
         headers: {
           authorization: `bearer ${token}`,
         },
@@ -81,7 +81,7 @@ export const CartPage = () => {
   const getCart = useCallback(() => {
     setEmpty(false);
     return axios
-      .get("https://backend-farfech.vercel.app/cart/get", {
+      .get("http://localhost:8080/cart/get", {
         headers: {
           authorization: `bearer ${token}`,
         },

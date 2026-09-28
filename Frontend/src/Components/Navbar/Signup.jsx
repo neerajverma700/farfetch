@@ -55,7 +55,7 @@ function Signup({ buttonName }) {
     const payload = { email, password };
     dispatch(signin_request());
     return await axios
-      .post("https://backend-farfech.vercel.app/user/login", payload)
+      .post("http://localhost:8080/user/login", payload)
       .then((res) => {
         dispatch(signin_success(res.data));
         console.log(res.data);
@@ -80,7 +80,7 @@ function Signup({ buttonName }) {
     const payload = { email, password, name };
     dispatch(signup_request());
     return await axios
-      .post("https://backend-farfech.vercel.app/user/signup", payload)
+      .post("http://localhost:8080/user/signup", payload)
       .then((res) => {
         dispatch(signup_success());
         setIsError(false);

@@ -3,6 +3,7 @@ for backend api data
 https://fashionclub.onrender.com/
 https://jolly-rose-shoe.cyclic.app/
 https://backend-farfech.vercel.app/
+http://localhost:8080/
 
 /user/signup    -POST 
 /user/login    -POST

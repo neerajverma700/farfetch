@@ -4,7 +4,7 @@ import {
   ADDTO_WISHLIST_REQUEST,
 } from "./actionType";
 
-const url = "https://backend-farfech.vercel.app/wishlist/add";
+const url = "http://localhost:8080/wishlist/add";
 
 export const addToWishlist = (token, productId, userId) => (dispatch) => {
   const config = {

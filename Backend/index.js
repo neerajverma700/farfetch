@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8080;
 
 require("dotenv").config();
 
-const { ProductRouter } = require("./Routes/product.routes");
+const { ProductRouter: productRoutes } = require("./Routes/product.routes");
 const { UserController } = require("./Routes/user.routes");
 const connection = require("./Config/db");
 const { WishlistRouter } = require("./Routes/Wishlist.routes");
@@ -18,9 +18,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/user", UserController);
-app.use("/product", ProductRouter);
+app.use("/product", productRoutes);
 app.use("/wishlist", WishlistRouter);
 app.use("/cart", CartRouter);
+app.use('/', productRoutes);
 
 app.listen(PORT, async () => {
   try {
