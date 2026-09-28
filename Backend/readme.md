@@ -29,3 +29,9 @@ http://localhost:8080
 /cart/get      -GET {pass token from the Headres}
 /cart/add      -POST  {pass toke from the Headers } {pass productId from payload}
 /cart/delete/:cardId      -DELETE  {pass token from the Headres} {pass cartId from the params}
+
+
+
+MONGODB_URI=mongodb+srv://neerajverma94500_db_user:xU2sK3ji5VDbHfgF@cluster0.bwaqmrq.mongodb.net/?appName=Cluster0     
+PORT=8080
+SECRETKEY=hfjkfdfgjhdgfjhdgfkrgjhjkghhdj
