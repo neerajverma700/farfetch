@@ -10,7 +10,7 @@ import {
   BiEnvelope,
   BiPhone,
 } from "react-icons/bi";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import {
   SimpleGrid,
@@ -57,7 +57,7 @@ const SingleProduct = () => {
       onOpen();
       axios
         .post(
-          "http://localhost:8080/cart/add",
+          "https://farfetch-backend-nine.vercel.app/cart/add",
           { productId: productId },
           {
             headers: {
@@ -103,7 +103,7 @@ const SingleProduct = () => {
       onOpen();
       axios
         .post(
-          "http://localhost:8080/wishlist/add",
+          "https://farfetch-backend-nine.vercel.app/wishlist/add",
           { productId: productId },
           {
             headers: {
@@ -149,7 +149,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/product/${productId}`)
+      .get(`https://farfetch-backend-nine.vercel.app/product/${productId}`)
       .then((res) => {
         setItem(res.data.product);
       })

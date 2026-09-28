@@ -1,6 +1,7 @@
 for backend api data
 
-http://localhost:8080
+http://localhost:8080/
+https://farfetch-backend-nine.vercel.app/
 
 /user/signup    -POST 
 /user/login    -POST

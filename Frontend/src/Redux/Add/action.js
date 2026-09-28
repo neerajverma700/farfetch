@@ -7,7 +7,7 @@ export const getAddress = (data) => ({
 
 export const fetchAddress = () => {
     return (dispatch) => {
-        fetch("http://localhost:8080/address")
+        fetch("https://farfetch-backend-nine.vercel.app/address")
             .then((response) => response.json())
             .then((data) =>
                 dispatch(getAddress(data))

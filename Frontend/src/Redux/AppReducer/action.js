@@ -5,7 +5,7 @@ import {
 } from "./actionType";
 import axios from "axios";
 
-export const url = "http://localhost:8080/product";
+export const url = "https://farfetch-backend-nine.vercel.app/product";
 
 export const getData = (category, subCategory, queryParams) => (dispatch) => {
   dispatch({ type: GET_DATA_REQUEST });

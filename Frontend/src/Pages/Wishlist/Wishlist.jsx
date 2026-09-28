@@ -36,7 +36,7 @@ const Wishlist = () => {
   const getData = useCallback(async () => {
     setEmpty(false);
     return axios
-      .get("http://localhost:8080/wishlist/get", {
+      .get("https://farfetch-backend-nine.vercel.app/wishlist/get", {
         headers: {
           Authorization: `Bearer ${userData.token}`,
           userId: userData.userId,
@@ -57,7 +57,7 @@ const Wishlist = () => {
     onOpen();
     axios
       .post(
-        "http://localhost:8080/cart/add",
+        "https://farfetch-backend-nine.vercel.app/cart/add",
         { productId: id },
         {
           headers: {
@@ -94,7 +94,7 @@ const Wishlist = () => {
   const del_wishlist = (id) => {
     onOpen();
     return axios
-      .delete(`http://localhost:8080/wishlist/delete/${id}`, {
+      .delete(`https://farfetch-backend-nine.vercel.app/wishlist/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${userData.token}`,
         },

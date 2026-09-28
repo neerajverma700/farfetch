@@ -53,7 +53,7 @@ export const CartPage = () => {
     onOpen();
     console.log(id);
     return axios
-      .delete(`http://localhost:8080/cart/delete/${id}`, {
+      .delete(`https://farfetch-backend-nine.vercel.app/cart/delete/${id}`, {
         headers: {
           authorization: `bearer ${token}`,
         },
@@ -81,7 +81,7 @@ export const CartPage = () => {
   const getCart = useCallback(() => {
     setEmpty(false);
     return axios
-      .get("http://localhost:8080/cart/get", {
+      .get("https://farfetch-backend-nine.vercel.app/cart/get", {
         headers: {
           authorization: `bearer ${token}`,
         },

@@ -14,10 +14,6 @@ Have a look ⬇️
 - ChakarUI
 - **Deploying:** vercel
 
-## Live Link
-
-- [Deploy_Link](https://farfetch-eight.vercel.app/)
-
 ## Features
 
 - Responsiveness using Chakra UI
@@ -32,5 +28,7 @@ Have a look ⬇️
 ## Screenshots
 
 ![Screenshot (10314)](https://user-images.githubusercontent.com/107556633/232496669-a41100f7-8031-4196-bae9-82af87bd4d97.png)
+
+<img width="1908" height="907" alt="Image" src="https://github.com/user-attachments/assets/9d0b53ca-aedc-4c37-95e9-6f0e97b4780f" />
 
 ## THANK YOU ❤️
