@@ -1,8 +1,6 @@
 import * as types from "./actionTypes";
 
-export const getAddress = (data) => (
-    console.log('getAdd', data),
-    {
+export const getAddress = (data) => ({
     type:types.GET_ADDRESS,
     payload: data
 });

@@ -28,7 +28,6 @@ import {
   Drawer,
   DrawerOverlay,
   DrawerContent,
-  DrawerHeader,
   DrawerBody,
   DrawerCloseButton,
   Radio,
@@ -46,7 +45,7 @@ import { BsFilter } from "react-icons/bs";
 const KidsProductPage = () => {
   const loadingItem = new Array(12).fill(0);
   const [changeIcon, setChangeIcon] = useState(false);
-  const { data, isLoading, isError } = useSelector((store) => store.AppReducer);
+  const { data, isLoading } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
   const [showCategory, setShowCategory] = useState(false);
   const [showBrand, setShowBrand] = useState(false);
@@ -62,7 +61,7 @@ const KidsProductPage = () => {
 
   useEffect(() => {
     dispatch(getData("/kids"));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setLargeGrid(showFilter ? 3 : 4);
@@ -496,7 +495,7 @@ const KidsProductPage = () => {
                     <Input placeholder={`$${maxPriceRange}`} />
                   </Flex>
                   <RangeSlider
-                    aria-label={["min", "max"]}
+                    aria-label="Price range"
                     colorScheme="gray"
                     defaultValue={[24, 18712]}
                     min={24}

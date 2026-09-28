@@ -2,7 +2,6 @@ import axios from "axios";
 import {
   ADDTO_WISHLIST_FAILURE,
   ADDTO_WISHLIST_REQUEST,
-  ADDTO_WISHLIST_SUCCESS,
 } from "./actionType";
 
 const url = "https://backend-farfech.vercel.app/wishlist/add";

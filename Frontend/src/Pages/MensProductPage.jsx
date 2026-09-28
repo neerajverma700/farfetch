@@ -28,7 +28,6 @@ import {
   Drawer,
   DrawerOverlay,
   DrawerContent,
-  DrawerHeader,
   DrawerBody,
   DrawerCloseButton,
   Radio,
@@ -42,13 +41,12 @@ import { useEffect } from "react";
 import { getData } from "../Redux/AppReducer/action";
 import ProductItem from "./ProductItem";
 import { BsFilter } from "react-icons/bs";
-import { Route } from "react-router-dom";
 import { GET_DATA_SUCCESS } from "../Redux/AppReducer/actionType";
 
 const MensProductPage = () => {
   const loadingItem = new Array(12).fill(0);
   const [changeIcon, setChangeIcon] = useState(false);
-  const { data, isLoading, isError } = useSelector((store) => store.AppReducer);
+  const { data, isLoading } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
   const [showCategory, setShowCategory] = useState(false);
   const [showBrand, setShowBrand] = useState(false);
@@ -89,7 +87,7 @@ const MensProductPage = () => {
 
   useEffect(() => {
     dispatch(getData(route));
-  }, [route]);
+  }, [dispatch, route]);
 
   useEffect(() => {
     setLargeGrid(showFilter ? 3 : 4);
@@ -539,7 +537,7 @@ const MensProductPage = () => {
                     <Input placeholder={`$${maxPriceRange}`} />
                   </Flex>
                   <RangeSlider
-                    aria-label={["min", "max"]}
+                    aria-label="Price range"
                     colorScheme="gray"
                     defaultValue={[24, 18712]}
                     min={24}

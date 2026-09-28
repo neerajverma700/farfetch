@@ -98,7 +98,7 @@ export const Payment = () => {
                         <div className={ styles.amountDiv }>
                             <p>Total</p>
                             <p>
-                                USD ${ total_prize == 24 ? `00` : total_prize }.00
+                                USD ${ total_prize === 24 ? `00` : total_prize }.00
                                 <br />
                                 Import duties included
                             </p>

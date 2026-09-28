@@ -1,25 +1,11 @@
 import {
   SimpleGrid,
   Box,
-  Image,
-  Text,
-  Select,
-  Button,
-  Flex,
-  Link,
   Tabs,
   TabList,
   TabPanels,
   Tab,
   TabPanel,
-  ListItem,
-  UnorderedList,
-  Spacer,
-  useToast,
-  Spinner,
-  AlertDialog,
-  AlertDialogOverlay,
-  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import Login from "./Login";

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   ADDTO_WISHLIST_FAILURE,
   ADDTO_WISHLIST_REQUEST,

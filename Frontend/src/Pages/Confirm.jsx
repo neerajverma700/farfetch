@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Text, Box, Image, Heading } from "@chakra-ui/react";
+import { Text, Box, Image, Heading } from "@chakra-ui/react";
 import {CheckIcon } from '@chakra-ui/icons'
 const Confirm = () => {
   return (

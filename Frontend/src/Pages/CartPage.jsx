@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "../styles/cartpage.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeDataFromCart } from "../Redux/Cart/action";
+import { addToCart } from "../Redux/Cart/action";
 import axios from "axios";
 import {
   AlertDialog,
@@ -22,7 +22,7 @@ import { IoCloseOutline } from "react-icons/io5";
 export const CartPage = () => {
   const navigate = useNavigate();
   const loadingItem = new Array(12).fill(0);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
   const [empty, setEmpty] = useState(false);
@@ -78,7 +78,7 @@ export const CartPage = () => {
       );
   };
 
-  function getCart() {
+  const getCart = useCallback(() => {
     setEmpty(false);
     return axios
       .get("https://backend-farfech.vercel.app/cart/get", {
@@ -95,14 +95,11 @@ export const CartPage = () => {
         setIsLoading(false);
         console.log("err", err);
       });
-  }
+  }, [dispatch, token]);
 
   useEffect(() => {
-    if (cartItems.length == 0) {
-      setIsLoading(true);
-    }
     getCart();
-  }, []);
+  }, [getCart]);
 
   return (
     <div className={styles.main}>
@@ -154,9 +151,9 @@ export const CartPage = () => {
                           </select>
                         </div>
                         <br />
-                        <a className={styles.wishlist} href="#">
+                        <button className={styles.wishlist} type="button">
                           <AiOutlineHeart /> Add to wishlist{" "}
-                        </a>
+                        </button>
                       </div>
                     </div>
                     <div>
@@ -180,9 +177,9 @@ export const CartPage = () => {
               </Box>
             ))}
           <Text margin={"auto"} fontSize="30px" textAlign="center">
-            {cartItems.length == 0 && empty && "Your Bag is empty"}
+            {cartItems.length === 0 && empty && "Your Bag is empty"}
           </Text>
-          {cartItems.length == 0 && empty && (
+          {cartItems.length === 0 && empty && (
             <Img
               margin={"auto"}
               height="200px"
@@ -196,7 +193,7 @@ export const CartPage = () => {
             fontSize="16px"
             textAlign="center"
           >
-            {cartItems.length == 0 && empty && "Please add some Products"}
+            {cartItems.length === 0 && empty && "Please add some Products"}
           </Text>
         </div>
         <div className={styles.Summary}>

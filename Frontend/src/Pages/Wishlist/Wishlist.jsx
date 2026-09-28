@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Box,
   Heading,
@@ -15,7 +15,6 @@ import {
   SkeletonText,
   AlertDialog,
   AlertDialogOverlay,
-  AlertDialogContent,
   useDisclosure,
   Img,
 } from "@chakra-ui/react";
@@ -28,13 +27,13 @@ const Wishlist = () => {
   const toast = useToast();
   const [data, setData] = useState([]);
   const { userData } = useSelector((store) => store.AuthReducer);
-  const [isloading, setIsLoading] = useState(false);
+  const [isloading, setIsLoading] = useState(true);
   const loadingItem = new Array(12).fill(0);
   const [empty, setEmpty] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     setEmpty(false);
     return axios
       .get("https://backend-farfech.vercel.app/wishlist/get", {
@@ -51,8 +50,8 @@ const Wishlist = () => {
       .catch((err) => {
         setIsLoading(false);
         console.log(err);
-      });
-  };
+        });
+      }, [userData]);
 
   const sendTobag = (id) => {
     onOpen();
@@ -120,11 +119,8 @@ const Wishlist = () => {
   };
 
   useEffect(() => {
-    if (data.length == 0) {
-      setIsLoading(true);
-    }
     getData();
-  }, []);
+  }, [getData]);
   return (
     <>
       <Box padding="2% 5% 5% 5%" align="center">
@@ -136,9 +132,9 @@ const Wishlist = () => {
         </Text>
       </Box>
       <Text margin={"auto"} fontSize="30px" textAlign="center">
-        {data.length == 0 && empty && "Your Wishlist is empty"}
+        {data.length === 0 && empty && "Your Wishlist is empty"}
       </Text>
-      {data.length == 0 && empty && (
+      {data.length === 0 && empty && (
         <Img
           margin={"auto"}
           height="300px"
@@ -147,7 +143,7 @@ const Wishlist = () => {
         />
       )}
       <Text margin={"auto"} fontSize="16px" textAlign="center">
-        {data.length == 0 && empty && "Please add some Products"}
+        {data.length === 0 && empty && "Please add some Products"}
       </Text>
       <div>
         <SimpleGrid columns={[1, 2, 3, 4]} gap={"2%"} padding="0 5% 5% 5%">

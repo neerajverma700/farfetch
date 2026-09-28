@@ -1,4 +1,3 @@
-import React from "react";
 import {
   GET_DATA_FAILURE,
   GET_DATA_REQUEST,

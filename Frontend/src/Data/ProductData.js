@@ -193,33 +193,6 @@ const kidsProduct1 = [
   },
 ];
 
-const kidsProduct2 = [
-  {
-    title: "",
-    description: "",
-    images: [],
-    price: "",
-  },
-  {
-    title: "",
-    description: "",
-    images: [],
-    price: "",
-  },
-  {
-    title: "",
-    description: "",
-    images: [],
-    price: "",
-  },
-  {
-    title: "",
-    description: "",
-    images: [],
-    price: "",
-  },
-];
-
 export {
   productData1,
   productData2,

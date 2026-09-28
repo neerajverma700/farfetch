@@ -44,8 +44,6 @@ import { useSelector } from "react-redux";
 
 const SingleProduct = () => {
   const [item, setItem] = React.useState();
-  const [loadingAddtoCart, setLoadingAddtoCart] = useState(false);
-  const [loadingAddtoWishlist, setLoadingAddtoWishlist] = useState(false);
 
   const { productId } = useParams();
   const { userData, isAuth } = useSelector((store) => store.AuthReducer);
@@ -56,7 +54,6 @@ const SingleProduct = () => {
 
   const handelAddtoCart = () => {
     if (isAuth) {
-      setLoadingAddtoCart(true);
       onOpen();
       axios
         .post(
@@ -79,7 +76,6 @@ const SingleProduct = () => {
             isClosable: true,
             position: "top",
           });
-          setLoadingAddtoCart(false);
         })
         .catch((err) => {
           console.log(err);
@@ -90,7 +86,6 @@ const SingleProduct = () => {
             duration: 4000,
             isClosable: true,
           });
-          setLoadingAddtoCart(false);
         });
     } else {
       toast({
@@ -105,7 +100,6 @@ const SingleProduct = () => {
   };
   const handelAddtoWishlist = () => {
     if (isAuth) {
-      setLoadingAddtoWishlist(true);
       onOpen();
       axios
         .post(
@@ -119,7 +113,6 @@ const SingleProduct = () => {
         )
         .then((res) => {
           // console.log(res);
-          setLoadingAddtoWishlist(false);
           onClose();
           toast({
             title: "Product added to wishlist",
@@ -132,7 +125,6 @@ const SingleProduct = () => {
         })
         .catch((er) => {
           // console.log(er);
-          setLoadingAddtoWishlist(false);
           onClose();
           toast({
             title: "Product is already present.",
@@ -164,7 +156,7 @@ const SingleProduct = () => {
       .catch((err) => {
         console.log("err", err);
       });
-  }, []);
+  }, [productId]);
 
   const settings = {
     dots: true,
@@ -192,6 +184,7 @@ const SingleProduct = () => {
                       style={{ height: "450px", margin: "auto" }}
                       className={Style.slider_img}
                       src={el}
+                      alt={item?.name || "Product"}
                     />
                   </div>
                 );

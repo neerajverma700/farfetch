@@ -21,7 +21,6 @@ import { logout_user } from "../../Redux/Auth/action";
 import Menu from "./Menu";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Hamburger from "./Hamburger";
-import { useEffect } from "react";
 
 function Navbar() {
   const [isProfile, setIsProfile] = useState(false);
@@ -42,8 +41,6 @@ function Navbar() {
 
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
   const { name } = useSelector((store) => store.AuthReducer.userData);
-  const ok = useSelector((store) => store.AuthReducer.userData);
-  useEffect(() => {}, []);
   // console.log(selected)
 
 

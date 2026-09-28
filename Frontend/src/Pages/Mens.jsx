@@ -18,7 +18,6 @@ import {
   Heading,
   Text,
   Button,
-  SimpleGrid,
 } from "@chakra-ui/react";
 import ProductList from "../Components/ProductList";
 import { productData1, productData2 } from "../Data/ProductData";

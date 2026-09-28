@@ -2,15 +2,11 @@ import styles from "../styles/address.module.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 // import { Address } from "../Redux/Cart/action"; 
-import { fetchAddress } from "../Redux/Add/action";
 import { useToast } from "@chakra-ui/react";
 
 const ShippingAddress = () => {
   const navigate = useNavigate();
-
-  const dispatch = useDispatch();
 
   const toast = useToast();
   const [address, addAddress] = useState({
@@ -29,20 +25,6 @@ const ShippingAddress = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     addAddress({ ...address, [name]: value });
-  };
-
-  const handleAddress = () => {
-    console.log("address", address);
-    fetch("https://backend-farfech.vercel.app/address", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(address),
-    }).then(() => {
-      dispatch(fetchAddress());
-    });
-    // window.location.reload(true);
   };
 
   const total_prize = cartItems.reduce((acc, current) => {
@@ -227,7 +209,7 @@ const ShippingAddress = () => {
           <div className={styles.pymtDiv}>
             <p>Total</p>
             <p>
-              USD ${total_prize == 24 ? `00` : total_prize}.00
+              USD ${total_prize === 24 ? `00` : total_prize}.00
               <br />
               Import duties included
             </p>

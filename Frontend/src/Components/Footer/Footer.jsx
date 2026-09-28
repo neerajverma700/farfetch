@@ -1,4 +1,4 @@
-import { SimpleGrid, Box, Text, Flex, Spacer, Button } from "@chakra-ui/react";
+import { SimpleGrid, Box, Text, Flex } from "@chakra-ui/react";
 import {
   AiOutlineTwitter,
   AiFillFacebook,
@@ -7,8 +7,6 @@ import {
 import { SiPinterest } from "react-icons/si";
 import { TbBrandSnapchat } from "react-icons/tb";
 import { IoLogoYoutube } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { color } from "framer-motion";
 
 const Footer = () => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { TbHanger } from "react-icons/tb";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { GoComment } from "react-icons/go";
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 const QuerySection = () => {
   return (
